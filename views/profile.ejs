@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <link rel="stylesheet" href="/stylesheets/uploadForm.css">
+    <link rel="stylesheet" href="/stylesheets/navbar.css">
+    <link rel="stylesheet" href="/stylesheets/postWindow.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css">
+    <title>Profile</title>
+</head>
+<body>
+
+    <%- include('partials/navbar-private') %>
+
+    <div id="algn">
+        <div class="card">
+            <a href="/logout" class="logout">Logout</a>
+            <div id="upper-bg">
+                <img src="<%=user.profilepic%>" class="profile-pic">
+            </div>
+            <div id="lower-bg">
+              <span class="profileicon"><i class="ri-pencil-fill"></i></span>
+              <div class="text">
+                <p class="name"><%= user.fullname %></p>
+                <p class="title">@<%=user.username%></p>
+              </div>
+              
+              <div id="btn">
+                <button class="msg" onclick="openUploadForm()" >Upload</button>
+                <a href="/profile/feed" style="text-decoration: none; color: black;"><button class="msg" >Feed</button></a>  
+              </div>
+            </div>
+        </div>
+        </div>
+        
+        <form hidden id="profileform" action="/uploadprofile" method="post" enctype="multipart/form-data">
+            <input type="file" name="profile" required>
+        </form>
+
+        <%- include('partials/uploadForm') %>
+
+        <div class="switch-content">
+           <div class="switch-card">
+            <div class="myposts focus" onclick="toggle('mypost-container')">UPLOADS</div>
+            <div class="savedposts" onclick="toggle('savedpost-container')">SAVED</div>
+           </div>
+        </div>
+
+        <div id="mypost-container" class="card-container mypost-container active">
+            <% user.posts.forEach(function(posts){ %>
+                <div class="image-card">
+                    <img class="images" src="/images/uploads/<%=posts.image %>" username="<%=user.username%>" userId="<%=user._id%>" postUserId="<%=user._id%>" postId="<%=posts._id%>" title="<%=posts.title%>" userProfilePic="<%=user.profilepic%>" likedby="[<%=posts.likedby%>]" likecount="<%=posts.likedby.length%>" savedpost="[<%=user.savedpost%>]" alt="Sammple Image">
+                    <div class="title"><%=posts.title%></div>
+                </div>    
+
+            <% }) %>
+        </div>
+
+        <div id="savedpost-container" class="card-container savedpost-container">
+            <% usersaved.savedpost.forEach(function(posts){ %>
+                <div class="image-card">
+                    <img class="images" src="/images/uploads/<%=posts.image %>" username="<%=user.username%>" userId="<%=user._id%>" postUserId="<%=posts.userid%>" postId="<%=posts._id%>" title="<%=posts.title%>" userProfilePic="<%=user.profilepic%>" likedby="[<%=posts.likedby%>]" likecount="<%=posts.likedby.length%>" savedpost="[<%=user.savedpost%>]" alt="Sammple Image">
+                    <div class="title"><%=posts.title%></div>
+                </div>    
+
+            <% }) %>
+        </div>
+        
+        <%- include('partials/postWindow') %>
+        
+
+
+
+<%- include('partials/footer') %>
+
+<script src="/javascripts/profile.js"></script>
+</body>
+</html>

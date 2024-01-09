@@ -1,0 +1,17 @@
+<form hidden id="profileform" action="/uploadprofile" method="post" enctype="multipart/form-data">
+    <input type="file" name="profile" required>
+</form>
+
+<div id="uploadForm">
+    <div id="closeButton" onclick="closeUploadForm()">✖</div>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="imageInput"><b>Choose an image:</b></label>
+        <input type="file" id="imageInput" name="file" accept="image/*" required>
+        <br>
+        <label for="caption" id="titleLabel">Caption:</label> <br>
+        <input type="text" placeholder="write something..." id="titleInput" name="title" required>
+        <br>
+        <button type="submit" class="uploadbtn">Upload</button>
+    </form>
+</div>
+<script src="/javascripts/profile.js"></script>

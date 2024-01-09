@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/feed.css">
+    <link rel="stylesheet" href="/stylesheets/navbar.css">
+    <link rel="stylesheet" href="/stylesheets/postWindow.css">
+    <link rel="stylesheet" href="/stylesheets/uploadForm.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css">
+    <title>Home</title>
+</head>
+<body>
+
+    <% if(userAuthenticated){ %>
+        <%- include('partials/navbar-private') %>
+    <% }else{ %>
+        <%- include('partials/navbar-public') %>
+    <% } %>
+
+     <%- include('partials/uploadForm') %>
+
+    <% if(userAuthenticated){ %>
+        <div class="card-container">
+            <% allpost.forEach(function(postdetail){ %>
+                
+                <div class="image-card" onclick="openWindow()">
+                    <img class="images" src="/images/uploads/<%=postdetail.image %>" username="<%=postdetail.userid.username%>" userId="<%=user._id%>" postUserId="<%=postdetail.userid._id%>" title="<%=postdetail.title%>" userProfilePic="<%=postdetail.userid.profilepic%>" postId="<%=postdetail._id%>" likedby="[<%=postdetail.likedby%>]" likecount="<%=postdetail.likedby.length%>" savedpost="[<%=user.savedpost%>]" alt="Sammple Image" >
+                    
+                    <div class="title"><%=postdetail.title%></div>
+                </div>    
+            <% }) %>
+        </div>
+        <%- include('partials/postWindow') %>
+    <% }else{ %>
+        <div class="card-container">
+            <% allpost.forEach(function(postdetail){ %>
+                
+                <div class="image-card">
+                    <a href="/register" style="text-decoration: none;"><img class="images" src="/images/uploads/<%=postdetail.image %>"  alt="Sammple Image" ></a>
+                    
+                    <div class="title"><%=postdetail.title%></div>
+                </div>    
+            <% }) %>
+        </div>
+    <% } %>
+
+    
+
+    <%- include('partials/footer') %>
+<script src="/javascripts/feed.js"></script>
+</body>
+</html>

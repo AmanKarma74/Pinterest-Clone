@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <title>Pinterest</title>
+</head> 
+<body>
+  <div class="container">
+    <div class="content">
+      <!--pinterest logo-->
+      <img src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png" alt="pin logo" class="img1" />
+      <p class="header">Sign Up to see more</p>
+
+      <form action="/register" method="post">
+        <input name="fullname" type="text" placeholder="Your Name" class="detail" /><br />
+        <input name="username" type="text" placeholder="Username" class="detail" /><br />
+        <input name="email" type="email" placeholder="Email" class="detail" /><br />
+        <input name="password" type="password" placeholder="Password" class="detail" />
+        <input type="submit" class="btn int" id="signupbtn" value="Sign Up">            <!-- we can use button as well by giving type="submit" in attribute -->
+      </form>
+      
+      <p class="or">OR</p>
+      <button class="btn fbk">
+        <i
+          class="fab fa-facebook fa-lg"
+          style="color: white; padding-right: 10px"
+        ></i
+        ><a href="#" >Continue with Google</a></button
+      >
+
+      <footer>
+        <p>
+          By continuing, you agree to Pinterest's
+          <b>Terms of Service, Privacy policy.</b>
+        </p>
+        <hr />
+        <a href="/login" id="logintext">Already on Pinterest? LogIn</a>
+      </footer>
+    </div>
+  </div>
+ <script src="/index.js"></script>
+</body>
+</html>

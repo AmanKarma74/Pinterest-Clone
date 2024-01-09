@@ -1,0 +1,26 @@
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7vh;
+    background-color: rgba(235, 5, 109,0.2);
+    color: black;
+    font-family: gilroy;
+    margin-top: 5px;
+}
+footer i {
+    margin: 0px 4px;
+}
+.links{
+    position: absolute;
+    right: 10px;
+    margin-right: 14px;
+}
+.links i {
+    font-size: 22px;
+    margin: 0px 4px;
+    color: black;
+}
+.links a {
+    text-decoration: none;
+}

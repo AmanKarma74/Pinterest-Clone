@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/visit-profile.css">
+    <link rel="stylesheet" href="/stylesheets/navbar.css">
+    <link rel="stylesheet" href="/stylesheets/postWindow.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css">
+    <title>Profile</title>
+</head>
+<body>
+
+    <%- include('partials/navbar-private') %>
+
+    <div id="algn">
+        <div class="card">
+            <div id="upper-bg">
+                <img src="<%=visitUser.profilepic%>" class="profile-pic">
+            </div>
+            <div id="lower-bg">
+              <div class="text">
+                <p class="name"><%= visitUser.fullname %></p>
+                <p class="title">@<%=visitUser.username%></p>
+              </div>
+              
+              <div id="btn">
+                <button class="msg" onclick="follower()" >Follow</button>
+                <button class="msg" ><a href="/profile/feed" style="text-decoration: none; color: black;">Feed</a></button>   
+              </div>
+            </div>
+        </div>
+        </div>
+        
+
+        
+        <div class="card-container">
+            <% visitUser.posts.forEach(function(posts){ %>
+
+                <div class="image-card" onclick="openWindow()">
+                    <img class="images" src="/images/uploads/<%=posts.image %>" username="<%=visitUser.username%>" userId="<%=user._id%>" postUserId="<%=posts.userid._id%>"  postId="<%=posts._id%>" likedby="[<%=posts.likedby%>]" likecount="<%=posts.likedby.length%>" title="<%=posts.title%>" userProfilePic="<%=visitUser.profilepic%>" savedpost="[<%=user.savedpost%>]" alt="Sammple Image">
+                    <div class="title"><%=posts.title%></div>
+                </div>    
+
+            <% }) %>
+        </div>
+
+        <%- include('partials/postWindow') %>
+
+
+        
+<%- include('partials/footer') %>
+<script src="/javascripts/visit-profile.js"></script>
+</body>
+</html>

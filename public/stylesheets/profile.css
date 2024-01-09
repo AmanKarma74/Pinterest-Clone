@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+#algn{
+    height: 80vh;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    width: 80%;
+    height: 435px;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 #E7E9EB, 0 6px 20px 0 #E7E9EB;
+    position: relative;
+}
+
+.logout{
+    position: absolute;
+    z-index: 3;
+    right: 20px;
+    top: 10px;
+}
+
+#upper-bg{
+    width: 100%;
+    height: 35%;
+    background-color: #FFE400;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.profile-pic{
+    width: 23vh;
+    height: 23vh;
+    background-color: white;
+    border: 3px solid #FFE400;
+    border-radius: 50%;
+    padding: 3px;
+    position: absolute;
+    top: 40px;
+    object-fit: cover;
+}
+
+#lower-bg{
+    margin-top: 2.5%;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+#lower-bg .profileicon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: wheat;
+    width: 5vh;
+    height: 5vh;
+    position: relative;
+    bottom: 15px;
+    left: 50px;
+    cursor: pointer;
+}
+
+.text{
+    text-align: center;
+    position: relative;
+    bottom: 15px;
+}
+
+.text .name{
+    font-weight: 600;
+    font-size: large;
+    padding: 0;
+    margin: 5px;
+}
+
+.text .title{
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+}
+
+
+#btn{
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+
+#btn .msg{
+    margin: 0 20px;
+    padding: 10px 15px;
+    background-color: #FFE400;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+}
+#btn a {
+    text-decoration: none;
+    cursor: default;
+}
+
+#btn button:hover{
+    box-shadow: 0 4px 8px 0 #E7E9EB, 0 6px 20px 0 #E7E9EB;
+}
+
+@media (max-width: 650px) {
+    #algn{
+        height: 65vh;
+        padding-top: 7%;
+    }
+    #algn .card{
+        width: 90%;
+        position: relative;
+        bottom: 10%;
+        
+    }
+    .profile-pic{
+        width: 16vh;
+        height: 16vh;
+        top: 50px;
+    }
+}
+
+/* <--------------------------------------- CONTENT AREA ------------------------------------------------> */
+
+.card-container{
+    width: 1500px;
+    columns: 4;
+    column-gap: 10px;
+    justify-content: center;
+    margin-left: 1%;
+    margin-top: 1%;
+    background-color: white;
+}
+.card-container .image-card{
+    width: 100%;
+    margin-bottom: 10px;
+    break-inside: avoid;
+    border-radius: 15px;
+    position: relative;
+}
+.card-container .image-card img {
+    max-width: 100%;
+    min-width: 100%;
+    border-radius: 10px;
+}
+.card-container .image-card .title {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 0 0 8px 8px;
+    box-sizing: border-box;
+    font-size: 80%;
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    transition: all ease 2s;
+}
+.image-card:hover .title {
+    display: block;
+}
+
+@media (max-width: 650px) {
+    .card-container{ 
+        width: 90%;
+        overflow-wrap: normal;
+        display: grid;
+        columns: 3;
+    }
+    .card-container .image-card{
+        width: 100%;
+        grid-column: auto;
+        overflow-wrap: normal;
+    }
+}
+
+/* <--------------------------------------- SWITCH CONTENT ------------------------------------------------> */
+.switch-content{
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 30px;
+    gap: 100px;
+    height: 50px;
+}
+.switch-content .switch-card{
+    background-color: #FFE400;
+    width: 12%;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 5px;
+    border-radius: 20px;
+    text-align: center;
+}
+.switch-content .myposts{
+    margin: 1px 5px;
+    height: 30px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.switch-content .savedposts{
+    margin: 1px 5px;
+    height: 30px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.mypost-container, .savedpost-container{
+    display: none;
+}
+.focus{
+    background-color: white;
+    color: black;
+}
+.active{
+    display: block;
+}
+
+
+@media (max-width: 650px) {
+    .switch-content .switch-card{
+        width: 45%;
+    }
+}

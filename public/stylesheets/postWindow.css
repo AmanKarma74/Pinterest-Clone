@@ -1,0 +1,108 @@
+/* <--------------------------------------- POST WINDOW ------------------------------------------------> */
+
+.window-container{
+    display: none;
+    /* display: flex; */ 
+    position: absolute;
+    /* top: 0; */
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.4);
+    
+}
+.window-card{
+    width: 35%;
+    height: 80%;
+    background-color: #fff;
+    padding: 15px 15px;
+    padding-top: 25px;
+    border: 2px solid gray;
+    border-radius: 15px;
+    position: relative;
+}
+.windowUser{
+    display: inline-flex;
+    align-items: center;
+}
+.windowUser .window-profile{
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: red;
+    overflow: hidden;
+}
+.windowUser .window-profile .window-profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.window-card .window-username{
+    text-decoration: none;
+    color: black;
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.window-card .window-img-frame{
+    background-color: #4d4848;
+    border-radius: 10px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    height: 75%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.window-card .window-img-frame .window-image{
+    max-height: 100%;
+    max-width: 100%;
+    display: block;
+}
+.window-card .likecount{
+    margin: 0;
+    color: #3a3737;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+.window-card .window-title{
+    font-family: sans-serif;
+    margin: 5px 0px;
+}
+.window-card .windowsavebtn {
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+}
+.window-card .windowdeletebtn {
+    text-decoration: none;
+    font-size: 24px;
+    color: rgb(101, 101, 101);
+    position: absolute;
+    right: 20px;
+}
+.window-card .windowlikebtn {
+    text-decoration: none;
+    font-size: 27.5px;
+    color: #f30d19;
+}
+.closeWindow {
+    position: absolute;
+    font-size: 20px;
+    top: 8px;
+    right: 15px;
+    cursor: pointer;
+}
+
+@media (max-width: 650px) {
+    .window-card{
+        width: 70%;
+        height: 75%;
+        
+    }
+}
